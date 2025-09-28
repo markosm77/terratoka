@@ -47,7 +47,6 @@
     .dropdown a:hover{background:#f8fafc; text-decoration:none;}
     .nav-item:hover .dropdown{display:block;}
     .nav-item:focus-within .dropdown{display:block;}
-    /* Ensure dropdown stays above content */
     .nav-item .dropdown{z-index:60}
 
     .btn{display:inline-flex;align-items:center;gap:.5rem;padding:12px 16px;border-radius:999px;background:linear-gradient(135deg,var(--yellow),var(--yellow-2));color:#111;border:1px solid rgba(0,0,0,.08);font-weight:800;box-shadow:var(--shadow);cursor:pointer}
@@ -108,6 +107,19 @@
     input:focus, textarea:focus{border-color:#fde68a;box-shadow:0 0 0 4px rgba(253,230,138,.45)}
     textarea{min-height:120px;resize:vertical}
 
+    /* NEW: Blog image fix */
+    .blog-img {
+      width: 100%;
+      max-width: 600px;
+      height: 320px;
+      object-fit: cover;
+      border-radius: 16px;
+      border:1px solid rgba(2,6,23,.08);
+      display: block;
+      margin-top: 12px;
+      box-shadow: var(--shadow);
+    }
+
     @media (max-width:980px){
       .hero-grid,.about-grid,.flagship-grid,.app-grid,.contact-grid{grid-template-columns:1fr}
     }
@@ -151,23 +163,24 @@
           </div>
           <div class="hero-media">
             <img src="images/hero.jpg" alt="Albanian mountain village with stone houses"/>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- FLAGSHIP / YOUTH (add id=youth so Projects dropdown anchors here) -->
+    <!-- FLAGSHIP / YOUTH -->
     <section id="youth" class="section theme-white">
       <div class="container">
         <div class="flagship-grid">
           <div>
             <h2>Flagship — Terratoka Youth</h2>
             <p>Ana, Kristo, and Henri, teamed up with Terratoka for a riverbank cleanup in Fier — then we shared ice cream and reflected on why caring for our city matters. Action + reflection is Terratoka’s heart.</p>
-<p>Terratoka Youth engages the younger generation with eco actions to foster sensibilization and education towards a greener and more sustainable future.</p>
+            <p>Terratoka Youth engages the younger generation with eco actions to foster sensibilization and education towards a greener and more sustainable future.</p>
             <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
               <a class="btn secondary" href="blog.html">Read more about Terratoka Youth</a>
             </div>
           </div>
-            <img src="images/blog1.jpg" alt="Riverbank clean-up in Fier"/>
-          </div>
+          <img src="images/blog1.jpg" alt="Riverbank clean-up in Fier" class="blog-img"/>
         </div>
       </div>
     </section>
@@ -250,14 +263,11 @@
       </div>
     </section>
 
-    <!-- PARTNERS -->
-    
     <!-- PARTNERS WITH MAP -->
     <section id="partners" class="section theme-yellow">
       <div class="container">
         <h2>Partners</h2>
         <div class="partners-grid" style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px;align-items:start;">
-          <!-- Left: copy + partner pills + CTA -->
           <div>
             <p>When we say “partner,” we mean anyone who walks with us — youth, families, municipalities, NGOs, schools, businesses, and travelers. Some will co‑design projects; others will show up to cook, clean, map trails, or host. All are Terratoka Partners.</p>
             <div class="partners" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:16px">
@@ -271,14 +281,12 @@
             </div>
           </div>
 
-          <!-- Right: Map (SVG with dots) -->
           <div class="partner-map-card" style="background:rgba(255,255,255,.92);border:1px solid rgba(2,6,23,.08);border-radius:18px;padding:16px;box-shadow:var(--shadow)">
             <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px">
               <strong style="font-family:Poppins,Inter,ui-sans-serif;">Where our partners are</strong>
               <span style="font-size:12px;color:#475569">Europe view</span>
             </div>
             <div class="map-wrap" style="position:relative; width:100%; aspect-ratio:16/10; border-radius:14px; overflow:hidden; background:linear-gradient(180deg,#ffffff,#f8fafc)">
-              <!-- Simple SVG canvas with approximate Europe bounding box and dots -->
               <svg viewBox="0 0 1000 625" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
                 <defs>
                   <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
@@ -287,13 +295,10 @@
                 </defs>
                 <rect x="0" y="0" width="1000" height="625" fill="url(#grid)"/>
                 <ellipse cx="600" cy="260" rx="360" ry="210" fill="#fff6bf" opacity="0.45"/>
-                <!-- Athens, Greece -->
                 <circle cx="760" cy="420" r="7" fill="#ffdb31" stroke="#111" stroke-width="1.5"/>
                 <text x="770" y="415" font-size="14" fill="#0f172a" font-family="Inter, Arial">Athens (GR)</text>
-                <!-- Shkodër, Albania -->
                 <circle cx="650" cy="360" r="7" fill="#ffdb31" stroke="#111" stroke-width="1.5"/>
                 <text x="660" y="355" font-size="14" fill="#0f172a" font-family="Inter, Arial">Shkodër</text>
-                <!-- Fier, Albania -->
                 <circle cx="640" cy="380" r="7" fill="#ffdb31" stroke="#111" stroke-width="1.5"/>
                 <text x="650" y="375" font-size="14" fill="#0f172a" font-family="Inter, Arial">Fier</text>
               </svg>
@@ -305,7 +310,6 @@
         </div>
       </div>
     </section>
-
 
     <!-- GET INVOLVED -->
     <section id="join" class="section theme-white">
@@ -357,9 +361,10 @@
       <small>© <span id="year"></span> Terratoka. All rights reserved.</small>
       <small><a href="#">Privacy</a> · <a href="#">Terms</a></small>
       <div class="container" style="padding:10px 20px 26px; display:flex; gap:10px; flex-wrap:wrap">
-      <a href="https://instagram.com/terratoka" style="text-decoration:none; border:1px solid rgba(0,0,0,.12); padding:8px 12px; border-radius:999px; color:#0f172a; background:#fff;">Instagram</a>
-      <a href="https://facebook.com/terratoka" style="text-decoration:none; border:1px solid rgba(0,0,0,.12); padding:8px 12px; border-radius:999px; color:#0f172a; background:#fff;">Facebook</a>
-      <a href="https://linkedin.com/company/terratoka" style="text-decoration:none; border:1px solid rgba(0,0,0,.12); padding:8px 12px; border-radius:999px; color:#0f172a; background:#fff;">LinkedIn</a>
+        <a href="https://instagram.com/terratoka" style="text-decoration:none; border:1px solid rgba(0,0,0,.12); padding:8px 12px; border-radius:999px; color:#0f172a; background:#fff;">Instagram</a>
+        <a href="https://facebook.com/terratoka" style="text-decoration:none; border:1px solid rgba(0,0,0,.12); padding:8px 12px; border-radius:999px; color:#0f172a; background:#fff;">Facebook</a>
+        <a href="https://linkedin.com/company/terratoka" style="text-decoration:none; border:1px solid rgba(0,0,0,.12); padding:8px 12px; border-radius:999px; color:#0f172a; background:#fff;">LinkedIn</a>
+      </div>
     </div>
   </footer>
 
