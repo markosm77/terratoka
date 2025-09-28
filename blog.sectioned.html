@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terratoka Blog — First Cleanup in Fier</title>
+  <meta name="theme-color" content="#ffdb31" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/logo-yellow.png" />
+  <style>
+    :root {
+      --yellow:#ffdb31;
+      --yellow-2:#facc15;
+      --yellow-soft:#fff6bf;
+      --text:#0f172a;
+      --muted:#475569;
+      --shadow:0 10px 28px rgba(2,6,23,.08);
+      --container:1200px;
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#fffdf5;color:var(--text);line-height:1.7}
+    h1,h2,h3{font-family:Poppins,Inter,ui-sans-serif}
+    a{color:#0ea5e9;text-decoration:none} a:hover{text-decoration:underline}
+
+    /* Header (consistent with index/all-posts) */
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid rgba(0,0,0,.06)}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:var(--container);margin:0 auto;padding:12px 20px}
+    .logo{display:flex;align-items:center;gap:.6rem;font-weight:800;color:var(--text)}
+    .logo img{height:46px;width:auto;display:block}
+    .nav-links{display:flex;gap:16px;align-items:center}
+    .nav-links a{color:var(--text);opacity:.9;font-weight:600}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:10px 14px;border-radius:999px;background:#fff;color:#111;border:2px solid var(--yellow);font-weight:800;box-shadow:none}
+    .menu-toggle{display:none;border:1px solid rgba(0,0,0,.15);border-radius:10px;background:#fff;padding:8px 10px}
+    @media (max-width:980px){
+      .nav-links{display:none;position:absolute;left:16px;right:16px;top:64px;background:#fff;border:1px solid rgba(2,6,23,.08);border-radius:14px;padding:12px;flex-direction:column}
+      .nav-links.open{display:flex}
+      .menu-toggle{display:inline-flex}
+    }
+
+    /* Sections */
+    .section{padding:0}
+    .hero-img{width:100%;height:420px;object-fit:cover;display:block;border-bottom:1px solid rgba(0,0,0,.06)}
+    .post-head{background:linear-gradient(135deg,#fff9c2,var(--yellow));border-bottom:1px solid rgba(0,0,0,.06)}
+    .post-head .inner{max-width:900px;margin:0 auto;padding:36px 20px;text-align:center}
+    .kicker{display:inline-block;background:#fff7cc;border:1px solid #fde68a;color:#7c5a00;padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px}
+    .title{font-size:clamp(26px,4.2vw,42px);margin:12px 0 6px}
+    .meta{font-size:13px;color:#64748b}
+
+    .wrap{max-width:900px;margin:0 auto;padding:34px 20px}
+    .article{font-family:"Times New Roman", Times, serif; font-size:19px; text-align:center}
+    .article p{margin:0 auto 26px; max-width:72ch}
+    .article img{width:100%;max-height:480px;object-fit:cover;margin:24px 0;border-radius:14px;box-shadow:0 4px 16px rgba(0,0,0,.12)}
+
+    footer{border-top:1px solid rgba(2,6,23,.08);color:#64748b;padding:22px 0;margin-top:28px}
+    .footer-inner{max-width:var(--container);margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px;gap:12px;flex-wrap:wrap}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav aria-label="Main">
+      <a class="logo" href="index.html">
+        <img src="images/logo-yellow.png" alt="Terratoka logo" />
+        <span style="font-size:1.1rem;font-weight:800;">Terratoka</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#programs">Programs</a>
+        <a href="index.html#about">About</a>
+        <a href="all-posts.html">Blog</a>
+        <a href="index.html#partners">Terratoka Partners</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="btn" href="index.html#join">Get Involved</a>
+      </div>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" id="menu-toggle">Menu</button>
+    </nav>
+  </header>
+
+  <!-- Hero image before title -->
+  <img class="hero-img" src="images/blog1.jpg" alt="Blog hero image">
+
+  <!-- Post header (title + meta) -->
+  <section class="post-head">
+    <div class="inner">
+      <span class="kicker">Field Notes</span>
+      <h1 class="title">Setting a Precedent: Our First Cleanup in Fier</h1>
+      <div class="meta">By Terratoka Youth · 2025</div>
+    </div>
+  </section>
+
+  <!-- Article body with 4 image slots -->
+  <main class="wrap">
+    <article class="article">
+      <p>Sometimes change begins with something small — a walk to the riverbank, a few cousins on bicycles, and two trash bags.</p>
+
+      <img src="images/blog2.jpg" alt="Cleanup action">
+
+      <p>When I returned to Fier this summer, I couldn’t ignore the trash scattered along the riverbank. It was the same place my younger cousins played every day. Instead of preaching, I proposed an “adventure.” We grabbed gloves, jumped on our bikes, and set out to clean the area together. Within an hour, we filled two large bags. The kids wore their gloves proudly, and on the way back, they told me it was the first time they thought about what it means to take care of their city.</p>
+
+      <img src="images/blog3.jpg" alt="River cleanup">
+
+      <p>That day, I understood something powerful: our actions create precedents. When we throw trash on the ground, we normalize neglect. But when we pick it up, we normalize care. Terratoka was born from this belief. By creating meaningful eco-adventures, we want to set positive precedents for communities, travelers, and future generations.</p>
+
+      <img src="images/blog4.jpg" alt="Kids with gloves after cleanup">
+
+      <p>This was just the first step — a small action, but one with ripples. Terratoka will continue to build on this momentum through cycling trips, eco-work, and cultural immersion across Albania and beyond.</p>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <small>© <span id="year"></span> Terratoka. All rights reserved.</small>
+      <small><a href="all-posts.html">Back to All Posts</a></small>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle?.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

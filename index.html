@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terratoka — Social-Impact Travel in Albania</title>
+  <meta name="description" content="Terratoka pioneers social-impact travel and youth empowerment in Albania through eco‑tourism, rural revitalization, and digital literacy." />
+  <meta name="theme-color" content="#ffdb31" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/logo-yellow.png" />
+  <style>
+    :root {
+      --yellow:#ffdb31;
+      --yellow-2:#facc15;
+      --yellow-soft:#fff6bf;
+      --text:#0f172a;
+      --muted:#475569;
+      --shadow:0 10px 28px rgba(2,6,23,.08);
+      --container:1200px;
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#fffdf5;color:var(--text);line-height:1.7}
+    h1,h2,h3{font-family:Poppins,Inter,ui-sans-serif}
+    a{color:#0ea5e9;text-decoration:none} a:hover{text-decoration:underline}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid rgba(0,0,0,.06)}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:var(--container);margin:0 auto;padding:12px 20px}
+    .logo{display:flex;align-items:center;gap:.6rem;font-weight:800;color:var(--text)}
+    .logo img{height:46px;width:auto;display:block}
+    .nav-links{display:flex;gap:16px;align-items:center;position:relative}
+    .nav-links a{color:var(--text);opacity:.9;font-weight:600}
+
+    /* Dropdown */
+    .nav-item{position:relative}
+    .nav-item > button{
+      background:transparent;border:none;color:var(--text);font-weight:600;cursor:pointer;padding:8px 6px;
+    }
+    .dropdown{
+      position:absolute; top:38px; left:0;
+      background:#fff; border:1px solid rgba(2,6,23,.08); border-radius:12px; box-shadow:var(--shadow);
+      padding:8px; display:none; min-width:220px;
+    }
+    .dropdown a{display:block; padding:10px 12px; border-radius:8px;}
+    .dropdown a:hover{background:#f8fafc; text-decoration:none;}
+    .nav-item:hover .dropdown{display:block;}
+    .nav-item:focus-within .dropdown{display:block;}
+    /* Ensure dropdown stays above content */
+    .nav-item .dropdown{z-index:60}
+
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:12px 16px;border-radius:999px;background:linear-gradient(135deg,var(--yellow),var(--yellow-2));color:#111;border:1px solid rgba(0,0,0,.08);font-weight:800;box-shadow:var(--shadow);cursor:pointer}
+    .btn.secondary{background:#fff;color:#111;border:2px solid var(--yellow);box-shadow:none}
+    .menu-toggle{display:none;border:1px solid rgba(0,0,0,.15);border-radius:10px;background:#fff;padding:8px 10px}
+
+    @media (max-width:980px){
+      .nav-links{display:none;position:absolute;left:16px;right:16px;top:64px;background:#fff;border:1px solid rgba(2,6,23,.08);border-radius:14px;padding:12px;flex-direction:column}
+      .nav-links.open{display:flex}
+      .menu-toggle{display:inline-flex}
+      .nav-item{width:100%}
+      .nav-item .dropdown{position:relative; top:0; left:0; box-shadow:none; border:1px dashed rgba(2,6,23,.08); display:none; margin-top:6px}
+      .nav-item.open .dropdown{display:block}
+      .nav-item > button{width:100%; text-align:left; padding:10px 8px; border-radius:8px; border:1px solid rgba(2,6,23,.08)}
+    }
+
+    /* Themes & layout */
+    .theme-yellow{background:linear-gradient(135deg,#fff9c2 0%, var(--yellow) 100%);}
+    .theme-white{background:#fff;}
+    .theme-yellow-soft{background:var(--yellow-soft);}
+    .section{padding:64px 0}
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+    .title{font-size:clamp(34px,6vw,56px);line-height:1.05;font-weight:800;letter-spacing:-0.01em}
+    .subtitle{color:var(--muted);font-size:clamp(16px,2.4vw,18px);max-width:70ch}
+    .hero{padding:84px 0 48px}
+    .hero-grid{display:grid;grid-template-columns:1.15fr 1.4fr;gap:28px;align-items:center}
+    .hero-media img{width:100%;height:auto;max-height:720px;border-radius:22px;box-shadow:var(--shadow);border:1px solid rgba(2,6,23,.08);object-fit:cover}
+
+    .section h2{font-size:clamp(24px,4vw,34px);position:relative;display:inline-block;padding-bottom:6px}
+    .section h2::after{content:"";position:absolute;left:0;bottom:0;width:52px;height:4px;border-radius:999px;background:linear-gradient(90deg,var(--yellow),#0ea5e9)}
+
+    /* Cards */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:28px 0 0}
+    @media (max-width:1100px){.cards{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:640px){.cards{grid-template-columns:1fr}}
+    .card{background:#fff;border:1px solid rgba(2,6,23,.08);border-radius:18px;padding:20px;transition:transform .2s ease, box-shadow .2s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+    .card h3{margin:6px 0 6px;font-size:18px}
+    .card p{margin:0;color:#334155;font-size:14px}
+    .icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#111;background:#fff;border:1px solid rgba(0,0,0,.08)}
+
+    /* Grids */
+    .about-grid,.flagship-grid,.app-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px;align-items:center}
+    .about-box{background:#fff;border:1px solid rgba(2,6,23,.08);border-radius:22px;padding:22px;box-shadow:var(--shadow)}
+    .thumb{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(2,6,23,.08)}
+    .thumb img{width:100%;height:auto;object-fit:cover}
+
+    /* Partners */
+    .partners{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:16px}
+    .partner-pill{display:flex;align-items:center;justify-content:center;height:56px;padding:0 16px;border-radius:999px;background:rgba(255,255,255,.92);border:1px solid rgba(2,6,23,.08);box-shadow:var(--shadow);font-weight:700;color:#0f172a}
+
+    /* Contact improvements */
+    .contact-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px;align-items:start}
+    .contact-card{background:#fff;border:1px solid rgba(2,6,23,.08);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+    form{display:grid;gap:12px}
+    label span{display:block;font-weight:600;margin-bottom:4px}
+    input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(148,163,184,.35);background:#fff;color:#111;outline:none}
+    input:focus, textarea:focus{border-color:#fde68a;box-shadow:0 0 0 4px rgba(253,230,138,.45)}
+    textarea{min-height:120px;resize:vertical}
+
+    @media (max-width:980px){
+      .hero-grid,.about-grid,.flagship-grid,.app-grid,.contact-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav aria-label="Main">
+      <a class="logo" href="index.html">
+        <img src="images/logo-yellow.png" alt="Terratoka logo" />
+        <span style="font-size:1.1rem;font-weight:800;">Terratoka</span>
+      </a>
+      <div class="nav-links" id="nav-links">
+        <a href="#partners">Partners</a>
+        <div class="nav-item" id="projects-item">
+          <button aria-haspopup="true" aria-expanded="false" aria-controls="projects-menu">Projects ▾</button>
+          <div class="dropdown" id="projects-menu" role="menu">
+            <a href="#youth" role="menuitem">Terratoka Youth</a>
+            <a href="#app" role="menuitem">Terratoka App</a>
+          </div>
+        </div>
+        <a href="#programs">Programs</a>
+        <a href="#about">About</a>
+        <a href="all-posts.html">Blog</a>
+        <a href="#contact">Contact</a>
+        <a class="btn secondary" href="#join">Get Involved</a>
+      </div>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links" id="menu-toggle">Menu</button>
+    </nav>
+  </header>
+
+  <main id="home">
+    <!-- HERO -->
+    <section class="theme-yellow">
+      <div class="hero container">
+        <div class="hero-grid">
+          <div>
+            <h1 class="title">Terratoka is Pioneering Rural Revitalization in Albania Through Eco‑Tourism, Youth Empowerment, and Digitalization</h1>
+            <p class="subtitle">Travel isn’t just about where you go. It’s about the impact you leave behind. With Terratoka, every step, ride, and story helps protect nature and sustain Albania’s rural communities.</p>
+            <div class="hero-cta" id="cta" style="margin-top:18px">
+              <a class="btn secondary" href="#partners">Join as a Terratoka Partner</a>
+            </div>
+          </div>
+          <div class="hero-media">
+            <img src="images/hero.jpg" alt="Albanian mountain village with stone houses" onerror="this.src='https://images.unsplash.com/photo-1513297887119-d46091b24bfa?q=80&w=1600&auto=format&fit=crop'"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLAGSHIP / YOUTH (add id=youth so Projects dropdown anchors here) -->
+    <section id="youth" class="section theme-white">
+      <div class="container">
+        <div class="flagship-grid">
+          <div>
+            <h2>Flagship — Terratoka Youth</h2>
+            <p>Ana, Kristo, and Henri, teamed up with Terratoka for a riverbank cleanup in Fier — then we shared ice cream and reflected on why caring for our city matters. Action + reflection is Terratoka’s heart.</p>
+            <p>We bridge municipalities, aligned sponsors, individuals who want to chip in, and young people ready to act. Anyone who joins the community becomes a collaborator in rural revitalization.</p>
+            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn secondary" href="blog.html">Read more about Terratoka Youth</a>
+            </div>
+          </div>
+          <div class="thumb">
+            <img src="images/pic2.jpg" alt="Hands cooking together in a kitchen" onerror="this.src='https://images.unsplash.com/photo-1493770348161-369560ae357d?q=80&w=1400&auto=format&fit=crop'"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TERRATOKA APP -->
+    <section id="app" class="section theme-yellow-soft">
+      <div class="container">
+        <div class="app-grid">
+          <div>
+            <h2>Terratoka App — Digital Literacy & Rural Experiences</h2>
+            <p class="subtitle">An all‑in‑one platform that introduces rural communities — especially kids — to computer literacy and cybersecurity basics, while connecting families to host unique rural experiences.</p>
+            <div class="cards" style="grid-template-columns:1fr 1fr 1fr">
+              <article class="card">
+                <h3>Digital Basics</h3>
+                <p>Offline‑first lessons on safe browsing, passwords, privacy, and device care — built for low‑connectivity schools.</p>
+              </article>
+              <article class="card">
+                <h3>Cyber Awareness</h3>
+                <p>Playful challenges led by mentors and diaspora volunteers to learn how to protect themselves online.</p>
+              </article>
+              <article class="card">
+                <h3>Host Experiences</h3>
+                <p>“Airbnb‑style” listings for rural families: cooking classes, gardening, craft days — with fair, transparent payouts.</p>
+              </article>
+            </div>
+            <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn" href="#contact">Express interest</a>
+              <a class="btn secondary" href="all-posts.html">See youth stories</a>
+            </div>
+          </div>
+          <div class="thumb">
+            <img src="images/terra-app.jpg" alt="Terratoka App concept screens" onerror="this.src='https://images.unsplash.com/photo-1510936111840-65e151ad71bb?q=80&w=1400&auto=format&fit=crop'"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section id="programs" class="section theme-white">
+      <div class="container">
+        <h2>Programs</h2>
+        <p>Our current focus areas:</p>
+        <div class="cards">
+          <article class="card"><div class="icon">🌱</div><h3>Land & Biodiversity</h3><p>Tree planting, cleanups, and regenerative farming — eco‑work that keeps Albania’s landscapes alive.</p></article>
+          <article class="card"><div class="icon">🎓</div><h3>Learning</h3><p><strong>Digital Literacy</strong>, youth exchanges, workshops, and reflection circles where culture, history, and nature meet.</p></article>
+          <article class="card"><div class="icon">🧭</div><h3>Pilot Trip</h3><p>Bridging Greek‑Albanians to expand their experiential, historical, and cultural knowledge of Albania.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section theme-white">
+      <div class="container">
+        <h2>About Terratoka</h2>
+        <div class="about-grid">
+          <div class="about-box">
+            <p>Terratoka is an independent, community‑rooted initiative based in Albania. We’re in an early stage and growing with honesty and care. We’ve exchanged a few emails with the Municipality of Shkodra and explored an application with Active Mobility Albania — nothing formal yet.</p>
+            <p>Our belief is simple: <b>everyone who joins the community is a partner</b>. Ana, Kristo, and Henri — the core of <em>Terratoka Youth</em> — are our first partners. Together, we’re building a bridge between youth energy, culture, and eco‑action.</p>
+            <p class="about-note">Want to collaborate on a program, route, or youth activity? <a href="#contact">Get in touch</a>.</p>
+          </div>
+          <div class="thumb">
+            <img src="images/pic3.jpg" alt="Guesthouse by the Shala River" onerror="this.src='https://source.unsplash.com/1400x900/?shala,river,albania,guesthouse'"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG PREVIEW -->
+    <section id="blog" class="section theme-white">
+      <div class="container">
+        <h2>Blog</h2>
+        <p>Stories from Terratoka Youth and beyond.</p>
+        <div style="display:flex; gap:20px; flex-wrap:wrap">
+          <a class="card" href="blog.html" style="width:320px; text-decoration:none">
+            <img alt="Cleanup volunteers in Fier" src="images/blog5.jpg" style="width:100%; border-radius:12px; border:1px solid rgba(2,6,23,.1)" onerror="this.src='https://images.unsplash.com/photo-1520975922322-5051b99b31cc?q=80&w=1200&auto=format&fit=crop'">
+            <h3 style="margin-top:10px; color:#0f172a">Setting a Precedent: Our First Cleanup in Fier</h3>
+            <p class="subtitle" style="margin:6px 0 0">With my cousins and Kristo — action + reflection over ice cream.</p>
+          </a>
+          <a class="btn" href="all-posts.html" style="align-self:flex-start">See all posts →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS -->
+    <section id="partners" class="section theme-yellow">
+      <div class="container">
+        <h2>Partners</h2>
+        <p>When we say “partner,” we mean anyone who walks with us — youth, families, municipalities, NGOs, schools, businesses, and travelers. Some will co‑design projects; others will show up to cook, clean, map trails, or host. All are Terratoka Partners.</p>
+        <div class="partners">
+          <div class="partner-pill">Ana, Kristo, Henri (Terratoka Youth)</div>
+          <div class="partner-pill">Municipalities</div>
+          <div class="partner-pill">Schools & Universities</div>
+          <div class="partner-pill">Local Guesthouses</div>
+        </div>
+        <div style="margin-top:16px">
+          <a class="btn" href="#contact">Be part of the community</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GET INVOLVED -->
+    <section id="join" class="section theme-white">
+      <div class="container">
+        <h2>Get Involved</h2>
+        <p>Support Terratoka through action and collaboration — no donations needed.</p>
+        <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+          <article class="card"><div class="icon">🧤</div><h3>Volunteer</h3><p>Be part of field cleanups, youth exchanges, and mapping eco‑trails. <a href="#contact">Tell us your skills</a>.</p></article>
+          <article class="card"><div class="icon">🤝</div><h3>Collaborate</h3><p>Municipalities, NGOs, schools, and businesses — co‑design programs and routes with us.</p></article>
+          <article class="card"><div class="icon">🗣️</div><h3>Spread the Word</h3><p>Share our stories, invite friends, and help us connect with local hosts.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section theme-yellow-soft">
+      <div class="container">
+        <h2>Contact</h2>
+        <div class="contact-grid">
+          <div class="contact-card">
+            <p>We’re building Terratoka step by step. If you share our vision, let’s connect — whether you’re a traveler, local host, or institution.</p>
+            <p>Use the form or email us directly: <a href="mailto:hello@terratoka.org">hello@terratoka.org</a>.</p>
+            <form method="post" action="#">
+              <label><span>Name</span><input name="name" placeholder="Your name" required /></label>
+              <label><span>Email</span><input type="email" name="email" placeholder="you@example.com" required /></label>
+              <label><span>Message</span><textarea name="message" placeholder="How would you like to collaborate?" required></textarea></label>
+              <button class="btn" type="submit">Send Message</button>
+            </form>
+          </div>
+          <div class="contact-card">
+            <h3 style="margin-top:0">Ways to Connect</h3>
+            <ul style="margin:0;padding-left:18px;color:#334155">
+              <li>Propose a youth activity at your school</li>
+              <li>Host a cooking or gardening experience</li>
+              <li>Discuss a rural route or pilot trip</li>
+              <li>Explore Terratoka App for your community</li>
+            </ul>
+            <div style="margin-top:14px">
+              <a class="btn secondary" href="all-posts.html">Read our stories</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:22px 0;border-top:1px solid rgba(148,163,184,.18)">
+      <small>© <span id="year"></span> Terratoka. All rights reserved.</small>
+      <small><a href="#">Privacy</a> · <a href="#">Terms</a></small>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    menuToggle?.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(open));
+    });
+
+    // Smooth anchor scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        const target = document.querySelector(id);
+        if (id && id.startsWith('#') && target) { e.preventDefault(); target.scrollIntoView({ behavior:'smooth', block:'start' }); }
+      });
+    });
+
+    // Dropdown accessibility for mobile (tap to open)
+    const projectsItem = document.getElementById('projects-item');
+    const projectsBtn = projectsItem?.querySelector('button');
+    projectsBtn?.addEventListener('click', (e) => {
+      const expanded = projectsBtn.getAttribute('aria-expanded') === 'true';
+      projectsBtn.setAttribute('aria-expanded', String(!expanded));
+      projectsItem.classList.toggle('open');
+      e.stopPropagation();
+    });
+    document.addEventListener('click', () => {
+      if(projectsItem?.classList.contains('open')){
+        projectsItem.classList.remove('open');
+        projectsBtn?.setAttribute('aria-expanded', 'false');
+      }
+    }, {capture:true});
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
