@@ -36,7 +36,7 @@
     /* Dropdown */
     .nav-item{position:relative}
     .nav-item > button{
-      background:transparent;border:none;color:var(--text);font-weight:600;cursor:pointer;padding:8px 6px;
+      background:transparent;border:none;color:var(--text);opacity:.9;font-weight:600;cursor:pointer;font-family:inherit;font-size:inherit;padding:0;
     }
     .dropdown{
       position:absolute; top:38px; left:0;
@@ -116,9 +116,7 @@
 <body>
   <header>
     <nav aria-label="Main">
-      <a class="logo" href="index.html">
-        <img src="images/logo-yellow.png" alt="Terratoka logo" />
-        <span style="font-size:1.1rem;font-weight:800;">Terratoka</span>
+      <a class="logo" href="index.html"><span style="font-size:1.1rem;font-weight:800;">Terratoka</span>
       </a>
       <div class="nav-links" id="nav-links">
         <a href="#partners">Partners</a>
@@ -165,7 +163,7 @@
           <div>
             <h2>Flagship — Terratoka Youth</h2>
             <p>Ana, Kristo, and Henri, teamed up with Terratoka for a riverbank cleanup in Fier — then we shared ice cream and reflected on why caring for our city matters. Action + reflection is Terratoka’s heart.</p>
-            <p>We bridge municipalities, aligned sponsors, individuals who want to chip in, and young people ready to act. Anyone who joins the community becomes a collaborator in rural revitalization.</p>
+<p>Terratoka Youth engages the younger generation with eco actions to foster sensibilization and education towards a greener and more sustainable future.</p>
             <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
               <a class="btn secondary" href="blog.html">Read more about Terratoka Youth</a>
             </div>
@@ -200,7 +198,6 @@
             </div>
             <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
               <a class="btn" href="#contact">Express interest</a>
-              <a class="btn secondary" href="all-posts.html">See youth stories</a>
             </div>
           </div>
           <div class="thumb">
@@ -257,21 +254,61 @@
     </section>
 
     <!-- PARTNERS -->
+    
+    <!-- PARTNERS WITH MAP -->
     <section id="partners" class="section theme-yellow">
       <div class="container">
         <h2>Partners</h2>
-        <p>When we say “partner,” we mean anyone who walks with us — youth, families, municipalities, NGOs, schools, businesses, and travelers. Some will co‑design projects; others will show up to cook, clean, map trails, or host. All are Terratoka Partners.</p>
-        <div class="partners">
-          <div class="partner-pill">Ana, Kristo, Henri (Terratoka Youth)</div>
-          <div class="partner-pill">Municipalities</div>
-          <div class="partner-pill">Schools & Universities</div>
-          <div class="partner-pill">Local Guesthouses</div>
-        </div>
-        <div style="margin-top:16px">
-          <a class="btn" href="#contact">Be part of the community</a>
+        <div class="partners-grid" style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px;align-items:start;">
+          <!-- Left: copy + partner pills + CTA -->
+          <div>
+            <p>When we say “partner,” we mean anyone who walks with us — youth, families, municipalities, NGOs, schools, businesses, and travelers. Some will co‑design projects; others will show up to cook, clean, map trails, or host. All are Terratoka Partners.</p>
+            <div class="partners" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:16px">
+              <div class="partner-pill">Terratoka Youth</div>
+              <div class="partner-pill">Municipalities</div>
+              <div class="partner-pill">Schools & Universities</div>
+              <div class="partner-pill">Local Guesthouses</div>
+            </div>
+            <div style="margin-top:16px">
+              <a class="btn" href="#contact">Be part of the community</a>
+            </div>
+          </div>
+
+          <!-- Right: Map (SVG with dots) -->
+          <div class="partner-map-card" style="background:rgba(255,255,255,.92);border:1px solid rgba(2,6,23,.08);border-radius:18px;padding:16px;box-shadow:var(--shadow)">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px">
+              <strong style="font-family:Poppins,Inter,ui-sans-serif;">Where our partners are</strong>
+              <span style="font-size:12px;color:#475569">Europe view</span>
+            </div>
+            <div class="map-wrap" style="position:relative; width:100%; aspect-ratio:16/10; border-radius:14px; overflow:hidden; background:linear-gradient(180deg,#ffffff,#f8fafc)">
+              <!-- Simple SVG canvas with approximate Europe bounding box and dots -->
+              <svg viewBox="0 0 1000 625" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
+                <defs>
+                  <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#e5e7eb" stroke-width="1"/>
+                  </pattern>
+                </defs>
+                <rect x="0" y="0" width="1000" height="625" fill="url(#grid)"/>
+                <ellipse cx="600" cy="260" rx="360" ry="210" fill="#fff6bf" opacity="0.45"/>
+                <!-- Athens, Greece -->
+                <circle cx="760" cy="420" r="7" fill="#ffdb31" stroke="#111" stroke-width="1.5"/>
+                <text x="770" y="415" font-size="14" fill="#0f172a" font-family="Inter, Arial">Athens (GR)</text>
+                <!-- Shkodër, Albania -->
+                <circle cx="650" cy="360" r="7" fill="#ffdb31" stroke="#111" stroke-width="1.5"/>
+                <text x="660" y="355" font-size="14" fill="#0f172a" font-family="Inter, Arial">Shkodër</text>
+                <!-- Fier, Albania -->
+                <circle cx="640" cy="380" r="7" fill="#ffdb31" stroke="#111" stroke-width="1.5"/>
+                <text x="650" y="375" font-size="14" fill="#0f172a" font-family="Inter, Arial">Fier</text>
+              </svg>
+            </div>
+            <div style="margin-top:10px; font-size:12px; color:#475569">
+              <span>• Yellow dots show current partner locations.</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
 
     <!-- GET INVOLVED -->
     <section id="join" class="section theme-white">
@@ -293,7 +330,7 @@
         <div class="contact-grid">
           <div class="contact-card">
             <p>We’re building Terratoka step by step. If you share our vision, let’s connect — whether you’re a traveler, local host, or institution.</p>
-            <p>Use the form or email us directly: <a href="mailto:hello@terratoka.org">hello@terratoka.org</a>.</p>
+            <p>Use the form or email us directly: <a href="mailto:info@terratoka.com">info@terratoka.com</a>.</p>
             <form method="post" action="#">
               <label><span>Name</span><input name="name" placeholder="Your name" required /></label>
               <label><span>Email</span><input type="email" name="email" placeholder="you@example.com" required /></label>
@@ -322,6 +359,10 @@
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:22px 0;border-top:1px solid rgba(148,163,184,.18)">
       <small>© <span id="year"></span> Terratoka. All rights reserved.</small>
       <small><a href="#">Privacy</a> · <a href="#">Terms</a></small>
+      <div class="container" style="padding:10px 20px 26px; display:flex; gap:10px; flex-wrap:wrap">
+      <a href="https://instagram.com/terratoka" style="text-decoration:none; border:1px solid rgba(0,0,0,.12); padding:8px 12px; border-radius:999px; color:#0f172a; background:#fff;">Instagram</a>
+      <a href="https://facebook.com/terratoka" style="text-decoration:none; border:1px solid rgba(0,0,0,.12); padding:8px 12px; border-radius:999px; color:#0f172a; background:#fff;">Facebook</a>
+      <a href="https://linkedin.com/company/terratoka" style="text-decoration:none; border:1px solid rgba(0,0,0,.12); padding:8px 12px; border-radius:999px; color:#0f172a; background:#fff;">LinkedIn</a>
     </div>
   </footer>
 
