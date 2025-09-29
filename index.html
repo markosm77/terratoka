@@ -8,7 +8,8 @@
   <meta name="theme-color" content="#ffdb31" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="images/logo-yellow.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
   <style>
     :root {
       --yellow:#ffdb31;
@@ -17,7 +18,7 @@
       --text:#0f172a;
       --muted:#475569;
       --shadow:0 10px 28px rgba(2,6,23,.08);
-      --container:1200px;
+      --container:1300px;
       --radius:18px;
     }
     *{box-sizing:border-box}
@@ -39,7 +40,7 @@
       background:transparent;border:none;color:var(--text);opacity:.9;font-weight:600;cursor:pointer;font-family:inherit;font-size:inherit;padding:0;
     }
     .dropdown{
-      position:absolute; top:38px; left:0;
+      position:absolute; top:28px; left:0;
       background:#fff; border:1px solid rgba(2,6,23,.08); border-radius:12px; box-shadow:var(--shadow);
       padding:8px; display:none; min-width:220px;
     }
@@ -49,8 +50,9 @@
     .nav-item:focus-within .dropdown{display:block;}
     .nav-item .dropdown{z-index:60}
 
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:12px 16px;border-radius:999px;background:linear-gradient(135deg,var(--yellow),var(--yellow-2));color:#111;border:1px solid rgba(0,0,0,.08);font-weight:800;box-shadow:var(--shadow);cursor:pointer}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:12px 16px;border-radius:999px;background:linear-gradient(135deg,var(--yellow),var(--yellow-2));color:#111;border:1px solid rgba(0,0,0,.08);font-weight:800;box-shadow:var(--shadow);cursor:pointer;transition: transform 0.5s ease;}
     .btn.secondary{background:#fff;color:#111;border:2px solid var(--yellow);box-shadow:none}
+    .btn:hover{transform: scale(1.1); text-decoration: none;}
     .menu-toggle{display:none;border:1px solid rgba(0,0,0,.15);border-radius:10px;background:#fff;padding:8px 10px}
 
     @media (max-width:980px){
@@ -107,6 +109,15 @@
     input:focus, textarea:focus{border-color:#fde68a;box-shadow:0 0 0 4px rgba(253,230,138,.45)}
     textarea{min-height:120px;resize:vertical}
 
+
+    #projects-item .dropdown {
+      display: none;
+    }
+
+    #projects-item:hover .dropdown {
+      display: block;
+    }
+
     /* NEW: Blog image fix */
     .blog-img {
       width: 100%;
@@ -135,13 +146,13 @@
         <div class="nav-item" id="projects-item">
           <button aria-haspopup="true" aria-expanded="false" aria-controls="projects-menu">Projects ▾</button>
           <div class="dropdown" id="projects-menu" role="menu">
-            <a href="#youth" role="menuitem">Terratoka Youth</a>
+            <a href="youth.html" role="menuitem">Terratoka Youth</a>
             <a href="#app" role="menuitem">Terratoka App</a>
           </div>
         </div>
         <a href="#programs">Programs</a>
         <a href="#about">About</a>
-        <a href="all-posts.html">Blog</a>
+        <a href="all-posts.merged.html">Blog</a>
         <a href="#contact">Contact</a>
         <a class="btn secondary" href="#join">Get Involved</a>
       </div>
@@ -177,7 +188,7 @@
             <p>Ana, Kristo, and Henri, teamed up with Terratoka for a riverbank cleanup in Fier — then we shared ice cream and reflected on why caring for our city matters. Action + reflection is Terratoka’s heart.</p>
             <p>Terratoka Youth engages the younger generation with eco actions to foster sensibilization and education towards a greener and more sustainable future.</p>
             <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
-              <a class="btn secondary" href="blog.html">Read more about Terratoka Youth</a>
+              <a class="btn secondary" href="youth.html">Read more about Terratoka Youth</a>
             </div>
           </div>
           <img src="images/blog1.jpg" alt="Riverbank clean-up in Fier" class="blog-img"/>
@@ -211,7 +222,7 @@
             </div>
           </div>
           <div class="thumb">
-            <img src="images/terra-app.jpg" alt="Terratoka App concept screens" onerror="this.src='https://images.unsplash.com/photo-1510936111840-65e151ad71bb?q=80&w=1400&auto=format&fit=crop'"/>
+            <img src="images/blog8.jfif" alt="Terratoka App concept screens" height="100%"/>
           </div>
         </div>
       </div>
@@ -240,9 +251,6 @@
             <p>Our belief is simple: <b>everyone who joins the community is a partner</b>. Ana, Kristo, and Henri — the core of <em>Terratoka Youth</em> — are our first partners. Together, we’re building a bridge between youth energy, culture, and eco‑action.</p>
             <p class="about-note">Want to collaborate on a program, route, or youth activity? <a href="#contact">Get in touch</a>.</p>
           </div>
-          <div class="thumb">
-            <img src="images/pic3.jpg" alt="Guesthouse by the Shala River" onerror="this.src='https://source.unsplash.com/1400x900/?shala,river,albania,guesthouse'"/>
-          </div>
         </div>
       </div>
     </section>
@@ -253,12 +261,11 @@
         <h2>Blog</h2>
         <p>Stories from Terratoka Youth and beyond.</p>
         <div style="display:flex; gap:20px; flex-wrap:wrap">
-          <a class="card" href="blog.html" style="width:320px; text-decoration:none">
-            <img alt="Cleanup volunteers in Fier" src="images/blog5.jpg" style="width:100%; border-radius:12px; border:1px solid rgba(2,6,23,.1)" onerror="this.src='https://images.unsplash.com/photo-1520975922322-5051b99b31cc?q=80&w=1200&auto=format&fit=crop'">
+          <a class="card" href="blog.sectioned.html" style="width:320px; text-decoration:none">
             <h3 style="margin-top:10px; color:#0f172a">Setting a Precedent: Our First Cleanup in Fier</h3>
             <p class="subtitle" style="margin:6px 0 0">With my cousins and Kristo — action + reflection over ice cream.</p>
           </a>
-          <a class="btn" href="all-posts.html" style="align-self:flex-start">See all posts →</a>
+          <a class="btn" href="all-posts.merged.html" style="align-self:flex-start">See all posts →</a>
         </div>
       </div>
     </section>
@@ -267,7 +274,7 @@
     <section id="partners" class="section theme-yellow">
       <div class="container">
         <h2>Partners</h2>
-        <div class="partners-grid" style="display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px;align-items:start;">
+        <div class="partners-grid" style="display:grid;grid-template-columns:1.1fr 1.4fr;gap:24px;align-items:start;">
           <div>
             <p>When we say “partner,” we mean anyone who walks with us — youth, families, municipalities, NGOs, schools, businesses, and travelers. Some will co‑design projects; others will show up to cook, clean, map trails, or host. All are Terratoka Partners.</p>
             <div class="partners" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:16px">
@@ -286,23 +293,43 @@
               <strong style="font-family:Poppins,Inter,ui-sans-serif;">Where our partners are</strong>
               <span style="font-size:12px;color:#475569">Europe view</span>
             </div>
-            <div class="map-wrap" style="position:relative; width:100%; aspect-ratio:16/10; border-radius:14px; overflow:hidden; background:linear-gradient(180deg,#ffffff,#f8fafc)">
-              <svg viewBox="0 0 1000 625" preserveAspectRatio="xMidYMid slice" width="100%" height="100%">
-                <defs>
-                  <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-                    <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#e5e7eb" stroke-width="1"/>
-                  </pattern>
-                </defs>
-                <rect x="0" y="0" width="1000" height="625" fill="url(#grid)"/>
-                <ellipse cx="600" cy="260" rx="360" ry="210" fill="#fff6bf" opacity="0.45"/>
-                <circle cx="760" cy="420" r="7" fill="#ffdb31" stroke="#111" stroke-width="1.5"/>
-                <text x="770" y="415" font-size="14" fill="#0f172a" font-family="Inter, Arial">Athens (GR)</text>
-                <circle cx="650" cy="360" r="7" fill="#ffdb31" stroke="#111" stroke-width="1.5"/>
-                <text x="660" y="355" font-size="14" fill="#0f172a" font-family="Inter, Arial">Shkodër</text>
-                <circle cx="640" cy="380" r="7" fill="#ffdb31" stroke="#111" stroke-width="1.5"/>
-                <text x="650" y="375" font-size="14" fill="#0f172a" font-family="Inter, Arial">Fier</text>
-              </svg>
-            </div>
+
+            <div id="map" style="height: 500px; width: 100%;"></div>
+            <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+            <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+            <script>
+              // Map initialization
+              const map = L.map('map');
+
+              // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+}).addTo(map);
+
+              // Locations
+              const locations = [
+                { name: 'Athens', coords: [37.9838, 23.7275] },
+                { name: 'Montpellier', coords: [43.6119, 3.8772] },
+                { name: 'Tirana', coords: [41.3275, 19.8189] },
+                { name: 'Thessaloniki', coords: [40.6401, 22.9444] },
+                { name: 'Hannover', coords: [52.3759, 9.7320] },
+                { name: 'Milan', coords: [45.4642, 9.1900] }
+              ];
+
+              // Add markers and collect LatLngs for bounds
+              const latlngs = [];
+              locations.forEach(loc => {
+                L.marker(loc.coords).addTo(map).bindPopup(loc.name);
+                latlngs.push(loc.coords);
+              });
+
+              // Zoom map to show all markers
+              const bounds = L.latLngBounds(latlngs);
+              map.fitBounds(bounds);
+            </script>
+
             <div style="margin-top:10px; font-size:12px; color:#475569">
               <span>• Yellow dots show current partner locations.</span>
             </div>
@@ -348,7 +375,7 @@
               <li>Explore Terratoka App for your community</li>
             </ul>
             <div style="margin-top:14px">
-              <a class="btn secondary" href="all-posts.html">Read our stories</a>
+              <a class="btn secondary" href="all-posts.merged.html">Read our stories</a>
             </div>
           </div>
         </div>
@@ -360,10 +387,12 @@
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:22px 0;border-top:1px solid rgba(148,163,184,.18)">
       <small>© <span id="year"></span> Terratoka. All rights reserved.</small>
       <small><a href="#">Privacy</a> · <a href="#">Terms</a></small>
-      <div class="container" style="padding:10px 20px 26px; display:flex; gap:10px; flex-wrap:wrap">
-        <a href="https://instagram.com/terratoka" style="text-decoration:none; border:1px solid rgba(0,0,0,.12); padding:8px 12px; border-radius:999px; color:#0f172a; background:#fff;">Instagram</a>
-        <a href="https://facebook.com/terratoka" style="text-decoration:none; border:1px solid rgba(0,0,0,.12); padding:8px 12px; border-radius:999px; color:#0f172a; background:#fff;">Facebook</a>
-        <a href="https://linkedin.com/company/terratoka" style="text-decoration:none; border:1px solid rgba(0,0,0,.12); padding:8px 12px; border-radius:999px; color:#0f172a; background:#fff;">LinkedIn</a>
+      <div class="container" style="padding:10px 20px 10px 26px; display:flex; gap:20px; flex-wrap:wrap; align-items:center; margin-right:4vw">
+
+        <a href="https://instagram.com/terratoka" ><img src="images/instagram.png" width="28px" style="display: block;"/></a>
+        <a href="https://facebook.com/terratoka" ><img src="images/facebook.png" width="28px" style="display: block;"/></a>
+        <a href="https://linkedin.com/terratoka" ><img src="images/linkedin.png" width="28px" style="display: block;"/></a>
+
       </div>
     </div>
   </footer>
@@ -388,19 +417,32 @@
 
     // Dropdown accessibility for mobile (tap to open)
     const projectsItem = document.getElementById('projects-item');
+    const projectsMenu = document.getElementById('projects-menu');
     const projectsBtn = projectsItem?.querySelector('button');
-    projectsBtn?.addEventListener('click', (e) => {
-      const expanded = projectsBtn.getAttribute('aria-expanded') === 'true';
-      projectsBtn.setAttribute('aria-expanded', String(!expanded));
-      projectsItem.classList.toggle('open');
-      e.stopPropagation();
-    });
-    document.addEventListener('click', () => {
-      if(projectsItem?.classList.contains('open')){
-        projectsItem.classList.remove('open');
-        projectsBtn?.setAttribute('aria-expanded', 'false');
-      }
-    }, {capture:true});
+   
+    // remove the click event listener part
+
+projectsItem?.addEventListener('mouseenter', () => {
+  projectsItem.classList.add('open');
+  projectsBtn?.setAttribute('aria-expanded', 'true');
+});
+
+projectsItem?.addEventListener('mouseleave', () => {
+  projectsItem.classList.remove('open');
+  projectsBtn?.setAttribute('aria-expanded', 'false');
+});
+
+projectsMenu?.addEventListener('mouseenter', () => {
+  projectsItem.classList.add('open');
+  projectsBtn?.setAttribute('aria-expanded', 'true');
+});
+
+projectsMenu?.addEventListener('mouseleave', () => {
+  projectsItem.classList.remove('open');
+  projectsBtn?.setAttribute('aria-expanded', 'false');
+});
+
+
 
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
