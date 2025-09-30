@@ -16,7 +16,7 @@
       --text:#0f172a;
       --muted:#475569;
       --shadow:0 10px 28px rgba(2,6,23,.08);
-      --container:1200px;
+      --container:1480px;
       --radius:18px;
     }
     *{box-sizing:border-box}
@@ -55,12 +55,29 @@
     .article p{margin:0 auto 26px; max-width:72ch}
     .article img{width:100%;max-height:480px;object-fit:contain;margin:24px 0;}
 
-    footer{border-top:1px solid rgba(2,6,23,.08);color:#64748b;padding:22px 0;margin-top:28px}
-    .footer-inner{max-width:var(--container);margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px;gap:12px;flex-wrap:wrap}
+    .container{max-width:100%;margin:0 auto;padding:0 20px}
+
+    .register{
+      font-size: 24px;
+    }
 
     @media screen and (max-width:500px){
       .article{
-        font-size: 24px;
+        font-size: 22px;
+      }
+
+      .register{
+        font-size: 18px;
+      }
+    }
+
+     @media screen and (max-width:730px){
+      .footer-container{
+        flex-direction: column;
+      }
+
+      .inner-container{
+        margin:0;
       }
     }
   </style>
@@ -139,15 +156,22 @@
 
         <p>Terra Youth is more than a trip — it is a movement of young people shaping the future of travel. By combining fun, adventure, and eco-work, we are setting a precedent for a new kind of tourism: one that revitalizes communities, restores nature, and creates lifelong bonds among travelers.</p>
     
-        <a class="btn" style="font-size: 24px;">Register now for our pilot trip</a>
+        <a class="btn register">Register now for our pilot trip</a>
     </article>
   </main>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-inner">
+    <div class="container footer-container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:22px 15%;border-top:1px solid rgba(148,163,184,.18)">
       <small>© <span id="year"></span> Terratoka. All rights reserved.</small>
-      <small><a href="all-posts.merged.html">Back to All Posts</a></small>
+      <small><a href="#">Privacy</a> · <a href="#">Terms</a></small>
+      <div class="container inner-container" style="padding:10px 20px 10px 26px; display:flex; gap:20px; flex-wrap:wrap; align-items:center;">
+
+        <a class="social" href="https://www.instagram.com/terratoka_?igsh=MXBpODRiOWdkcmI4Yg%3D%3D&utm_source=qr" ><img src="images/instagram.png" width="28px" style="display: block;"/></a>
+        <a class="social" href="https://www.facebook.com/profile.php?id=61580971367718" ><img src="images/facebook.png" width="28px" style="display: block;"/></a>
+        <!--a class="social" href="https://linkedin.com/terratoka" ><img src="images/linkedin.png" width="28px" style="display: block;"/></a-->
+
+      </div>
     </div>
   </footer>
 

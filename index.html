@@ -185,17 +185,35 @@
       }
     }
 
-       @media (max-width:980px){
-         #projects-item:hover .dropdown {
-          display: block;
-          width: 40%;
-          margin: auto;
-        }
+    @media (max-width:980px){
+     #projects-item:hover .dropdown {
+        display: block;
+        width: 40%;
+        margin: auto;
+      }
 
-        .dropdown a{
-          text-align: center;
-        }
-       }
+      .dropdown a{
+        text-align: center;
+      }
+    }
+
+    .inner-container{
+       margin-right:4vw;
+    }
+
+    .footer-container{
+      flex-direction: row;
+    }
+
+    @media screen and (max-width:535px){
+      .footer-container{
+        flex-direction: column;
+      }
+
+      .inner-container{
+        margin:0;
+      }
+    }
   </style>
 </head>
 <body>
@@ -448,10 +466,10 @@
   </main>
 
   <footer>
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:22px 16px;border-top:1px solid rgba(148,163,184,.18)">
+    <div class="container footer-container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:22px 16px;border-top:1px solid rgba(148,163,184,.18)">
       <small>© <span id="year"></span> Terratoka. All rights reserved.</small>
       <small><a href="#">Privacy</a> · <a href="#">Terms</a></small>
-      <div class="container" style="padding:10px 20px 10px 26px; display:flex; gap:20px; flex-wrap:wrap; align-items:center; margin-right:4vw">
+      <div class="container inner-container" style="padding:10px 20px 10px 26px; display:flex; gap:20px; flex-wrap:wrap; align-items:center;">
 
         <a class="social" href="https://www.instagram.com/terratoka_?igsh=MXBpODRiOWdkcmI4Yg%3D%3D&utm_source=qr" ><img src="images/instagram.png" width="28px" style="display: block;"/></a>
         <a class="social" href="https://www.facebook.com/profile.php?id=61580971367718" ><img src="images/facebook.png" width="28px" style="display: block;"/></a>
