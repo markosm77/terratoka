@@ -62,9 +62,11 @@
       .nav-links.open{display:flex}
       .menu-toggle{display:inline-flex}
       .nav-item{width:100%}
-      .nav-item .dropdown{position:relative; top:0; left:0; box-shadow:none; border:1px dashed rgba(2,6,23,.08); display:none; margin-top:6px}
+      .nav-item .dropdown{position:relative; top:0; left:0; box-shadow:none; border:1px dashed black; display:none; margin-top:6px}
       .nav-item.open .dropdown{display:block}
       .nav-item > button{width:100%; text-align:left; padding:10px 8px; border-radius:8px; text-align: center;}
+      .dropdown a {border-radius: 0px;}
+      #upper{border-bottom: 1px solid black;}
     }
 
     /* Themes & layout */
@@ -206,7 +208,7 @@
         <div class="nav-item" id="projects-item">
           <button aria-haspopup="true" aria-expanded="false" aria-controls="projects-menu">Projects ▾</button>
           <div class="dropdown" id="projects-menu" role="menu">
-            <a href="youth.html" role="menuitem">Terratoka Youth</a>
+            <a href="youth.html" role="menuitem" id="upper">Terratoka Youth</a>
             <a href="#app" role="menuitem">Terratoka App</a>
           </div>
         </div>
