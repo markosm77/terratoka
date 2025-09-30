@@ -55,7 +55,19 @@
     .cta{display:inline-flex;align-items:center;gap:.4rem;background:linear-gradient(135deg,var(--yellow),var(--yellow-2));color:#111;border:1px solid rgba(0,0,0,.08);padding:10px 14px;border-radius:999px;font-weight:800;box-shadow:var(--shadow)}
 
     footer{border-top:1px solid rgba(2,6,23,.08);color:#64748b;padding:22px 0;margin-top:28px}
-    .footer-inner{max-width:var(--container);margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px;gap:12px;flex-wrap:wrap}
+   .footer-inner{max-width:var(--container);margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px;gap:12px;flex-wrap:wrap}
+
+   .register_btn{
+      background: white !important;
+      margin-left:12px;
+   }
+
+   @media screen and (max-width: 497px) {
+    .register_btn{
+      margin-left:0px;
+      margin-top: 8px;
+    }
+   }
   </style>
 </head>
 <body>
@@ -95,7 +107,7 @@
           <h3><a href="youth.html" style="color:#0f172a;text-decoration:none">Terra Youth: Our Flagship Project</a></h3>
           <p class="excerpt">Terra Youth is more than a trip — it is a movement of young people shaping the future of travel.</p>
           <a class="cta btn" href="youth.html">Read story →</a>
-          <a class="btn" style="background: white !important; margin-left:8px;" href="youth.html">Register now for our pilot trip →</a>
+          <a class="btn register_btn" href="youth.html">Register now for our pilot trip →</a>
       </article>
       
       <article class="card">

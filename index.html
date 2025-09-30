@@ -18,7 +18,7 @@
       --text:#0f172a;
       --muted:#475569;
       --shadow:0 10px 28px rgba(2,6,23,.08);
-      --container:1300px;
+      --container:1480px;
       --radius:18px;
     }
     *{box-sizing:border-box}
@@ -53,6 +53,8 @@
     .btn{display:inline-flex;align-items:center;gap:.5rem;padding:12px 16px;border-radius:999px;background:linear-gradient(135deg,var(--yellow),var(--yellow-2));color:#111;border:1px solid rgba(0,0,0,.08);font-weight:800;box-shadow:var(--shadow);cursor:pointer;transition: transform 0.5s ease;}
     .btn.secondary{background:#fff;color:#111;border:2px solid var(--yellow);box-shadow:none}
     .btn:hover{transform: scale(1.1); text-decoration: none;}
+    .social{transition: transform 0.3s ease;}
+    .social:hover{transform: scale(1.2);}
     .menu-toggle{display:none;border:1px solid rgba(0,0,0,.15);border-radius:10px;background:#fff;padding:8px 10px}
 
     @media (max-width:980px){
@@ -69,12 +71,12 @@
     .theme-yellow{background:linear-gradient(135deg,#fff9c2 0%, var(--yellow) 100%);}
     .theme-white{background:#fff;}
     .theme-yellow-soft{background:var(--yellow-soft);}
-    .section{padding:64px 0}
+    .section{padding:54px 0}
     .container{max-width:var(--container);margin:0 auto;padding:0 20px}
-    .title{font-size:clamp(34px,6vw,56px);line-height:1.05;font-weight:800;letter-spacing:-0.01em}
+    .title{font-size:clamp(34px,6vw,50px);line-height:1.05;font-weight:800;letter-spacing:-0.01em}
     .subtitle{color:var(--muted);font-size:clamp(16px,2.4vw,18px);max-width:70ch}
-    .hero{padding:84px 0 48px}
-    .hero-grid{display:grid;grid-template-columns:1.15fr 1.4fr;gap:28px;align-items:center}
+    .hero{padding:64px 18px 48px}
+    .hero-grid{display:grid;grid-template-columns:1.4fr 1.3fr;gap:28px;align-items:center}
     .hero-media img{width:100%;height:auto;max-height:720px;border-radius:22px;box-shadow:var(--shadow);border:1px solid rgba(2,6,23,.08);object-fit:cover}
 
     .section h2{font-size:clamp(24px,4vw,34px);position:relative;display:inline-block;padding-bottom:6px}
@@ -91,9 +93,10 @@
     .icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:800;color:#111;background:#fff;border:1px solid rgba(0,0,0,.08)}
 
     /* Grids */
-    .about-grid,.flagship-grid,.app-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px;align-items:center}
+    .flagship-grid,.app-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px;align-items:center}
+    .about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;align-items:center}
     .about-box{background:#fff;border:1px solid rgba(2,6,23,.08);border-radius:22px;padding:22px;box-shadow:var(--shadow)}
-    .thumb{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(2,6,23,.08)}
+    .thumb{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(2,6,23,.08);position: relative;top: 60px;}
     .thumb img{width:100%;height:auto;object-fit:cover}
 
     /* Partners */
@@ -132,7 +135,52 @@
     }
 
     @media (max-width:980px){
-      .hero-grid,.about-grid,.flagship-grid,.app-grid,.contact-grid{grid-template-columns:1fr}
+     .flagship-grid,.contact-grid{grid-template-columns:1fr}
+    }
+
+    @media screen and (max-width:1200px){
+       .hero-grid, .app-grid{
+        grid-template-columns:1fr
+      }
+
+      .thumb{
+        position: static;
+        width: 80%;
+        margin-left: 10%;
+      }
+    }
+
+    .dynamic-grid{
+      grid-template-columns:1fr 1fr 1fr;
+    }
+
+    @media screen and (max-width: 588px) {
+      .dynamic-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        padding: 24px 18px 48px;
+      }
+    }
+
+    .partners-grid{
+      display:grid;
+      grid-template-columns:1.1fr 1.5fr;
+      gap:24px;
+      align-items:start;
+    }
+
+    @media screen and (max-width:1000px){
+       .about-grid, .partners-grid{
+        grid-template-columns:1fr
+      }
+    }
+
+    @media screen and (max-width:630px) {
+      #map{
+        height:300px !important;
+      }
     }
   </style>
 </head>
@@ -203,7 +251,7 @@
           <div>
             <h2>Terratoka App — Digital Literacy & Rural Experiences</h2>
             <p class="subtitle">An all‑in‑one platform that introduces rural communities — especially kids — to computer literacy and cybersecurity basics, while connecting families to host unique rural experiences.</p>
-            <div class="cards" style="grid-template-columns:1fr 1fr 1fr">
+            <div class="cards dynamic-grid">
               <article class="card">
                 <h3>Digital Basics</h3>
                 <p>Offline‑first lessons on safe browsing, passwords, privacy, and device care — built for low‑connectivity schools.</p>
@@ -274,7 +322,7 @@
     <section id="partners" class="section theme-yellow">
       <div class="container">
         <h2>Partners</h2>
-        <div class="partners-grid" style="display:grid;grid-template-columns:1.1fr 1.4fr;gap:24px;align-items:start;">
+        <div class="partners-grid">
           <div>
             <p>When we say “partner,” we mean anyone who walks with us — youth, families, municipalities, NGOs, schools, businesses, and travelers. Some will co‑design projects; others will show up to cook, clean, map trails, or host. All are Terratoka Partners.</p>
             <div class="partners" style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:16px">
@@ -294,7 +342,7 @@
               <span style="font-size:12px;color:#475569">Europe view</span>
             </div>
 
-            <div id="map" style="height: 500px; width: 100%;"></div>
+            <div id="map" style="height: 400px; width: 100%;"></div>
             <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
             <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
             <script>
@@ -302,11 +350,11 @@
               const map = L.map('map');
 
               // Add OpenStreetMap tiles
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
-    subdomains: 'abcd',
-    maxZoom: 19
-}).addTo(map);
+              L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+                  subdomains: 'abcd',
+                  maxZoom: 19
+              }).addTo(map);
 
               // Locations
               const locations = [
@@ -321,13 +369,15 @@
               // Add markers and collect LatLngs for bounds
               const latlngs = [];
               locations.forEach(loc => {
-                L.marker(loc.coords).addTo(map).bindPopup(loc.name);
+                L.marker(loc.coords).addTo(map);
                 latlngs.push(loc.coords);
               });
 
               // Zoom map to show all markers
               const bounds = L.latLngBounds(latlngs);
-              map.fitBounds(bounds);
+              map.fitBounds(bounds, {
+                padding: [20, 20] // increase values to zoom out more
+              });
             </script>
 
             <div style="margin-top:10px; font-size:12px; color:#475569">
@@ -343,7 +393,7 @@
       <div class="container">
         <h2>Get Involved</h2>
         <p>Support Terratoka through action and collaboration — no donations needed.</p>
-        <div class="cards" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="cards dynamic-grid">
           <article class="card"><div class="icon">🧤</div><h3>Volunteer</h3><p>Be part of field cleanups, youth exchanges, and mapping eco‑trails. <a href="#contact">Tell us your skills</a>.</p></article>
           <article class="card"><div class="icon">🤝</div><h3>Collaborate</h3><p>Municipalities, NGOs, schools, and businesses — co‑design programs and routes with us.</p></article>
           <article class="card"><div class="icon">🗣️</div><h3>Spread the Word</h3><p>Share our stories, invite friends, and help us connect with local hosts.</p></article>
@@ -384,14 +434,14 @@
   </main>
 
   <footer>
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:22px 0;border-top:1px solid rgba(148,163,184,.18)">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:22px 16px;border-top:1px solid rgba(148,163,184,.18)">
       <small>© <span id="year"></span> Terratoka. All rights reserved.</small>
       <small><a href="#">Privacy</a> · <a href="#">Terms</a></small>
       <div class="container" style="padding:10px 20px 10px 26px; display:flex; gap:20px; flex-wrap:wrap; align-items:center; margin-right:4vw">
 
-        <a href="https://instagram.com/terratoka" ><img src="images/instagram.png" width="28px" style="display: block;"/></a>
-        <a href="https://facebook.com/terratoka" ><img src="images/facebook.png" width="28px" style="display: block;"/></a>
-        <a href="https://linkedin.com/terratoka" ><img src="images/linkedin.png" width="28px" style="display: block;"/></a>
+        <a class="social" href="https://www.instagram.com/terratoka_?igsh=MXBpODRiOWdkcmI4Yg%3D%3D&utm_source=qr" ><img src="images/instagram.png" width="28px" style="display: block;"/></a>
+        <a class="social" href="https://www.facebook.com/profile.php?id=61580971367718" ><img src="images/facebook.png" width="28px" style="display: block;"/></a>
+        <!--a class="social" href="https://linkedin.com/terratoka" ><img src="images/linkedin.png" width="28px" style="display: block;"/></a-->
 
       </div>
     </div>
