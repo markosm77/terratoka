@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
+  <!--link rel="icon" href="images/logo-yellow.png" /-->
   <style>
     :root {
       --yellow:#ffdb31;
@@ -144,11 +144,19 @@
        .hero-grid, .app-grid{
         grid-template-columns:1fr
       }
+    }
 
-      .thumb{
+    @media screen and (min-width:600px) and (max-width:1200px){
+       .thumb{
         position: static;
         width: 80%;
         margin-left: 10%;
+      }
+    }
+
+    @media screen and (max-width:600px){
+       .thumb{
+        position: static;
       }
     }
 
@@ -483,6 +491,7 @@
     // Mobile menu toggle
     const menuToggle = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-links');
+
     menuToggle?.addEventListener('click', () => {
       const open = navLinks.classList.toggle('open');
       menuToggle.setAttribute('aria-expanded', String(open));
@@ -494,6 +503,7 @@
         const id = a.getAttribute('href');
         const target = document.querySelector(id);
         if (id && id.startsWith('#') && target) { e.preventDefault(); target.scrollIntoView({ behavior:'smooth', block:'start' }); }
+        const open = navLinks.classList.toggle('open');
       });
     });
 
@@ -504,27 +514,25 @@
    
     // remove the click event listener part
 
-projectsItem?.addEventListener('mouseenter', () => {
-  projectsItem.classList.add('open');
-  projectsBtn?.setAttribute('aria-expanded', 'true');
-});
+    projectsItem?.addEventListener('mouseenter', () => {
+      projectsItem.classList.add('open');
+      projectsBtn?.setAttribute('aria-expanded', 'true');
+    });
 
-projectsItem?.addEventListener('mouseleave', () => {
-  projectsItem.classList.remove('open');
-  projectsBtn?.setAttribute('aria-expanded', 'false');
-});
+    projectsItem?.addEventListener('mouseleave', () => {
+      projectsItem.classList.remove('open');
+      projectsBtn?.setAttribute('aria-expanded', 'false');
+    });
 
-projectsMenu?.addEventListener('mouseenter', () => {
-  projectsItem.classList.add('open');
-  projectsBtn?.setAttribute('aria-expanded', 'true');
-});
+    projectsMenu?.addEventListener('mouseenter', () => {
+      projectsItem.classList.add('open');
+      projectsBtn?.setAttribute('aria-expanded', 'true');
+    });
 
-projectsMenu?.addEventListener('mouseleave', () => {
-  projectsItem.classList.remove('open');
-  projectsBtn?.setAttribute('aria-expanded', 'false');
-});
-
-
+    projectsMenu?.addEventListener('mouseleave', () => {
+      projectsItem.classList.remove('open');
+      projectsBtn?.setAttribute('aria-expanded', 'false');
+    });
 
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
