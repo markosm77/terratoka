@@ -98,7 +98,7 @@
     .flagship-grid,.app-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px;align-items:center}
     .about-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:24px;align-items:center}
     .about-box{background:#fff;border:1px solid rgba(2,6,23,.08);border-radius:22px;padding:22px;box-shadow:var(--shadow)}
-    .thumb{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(2,6,23,.08);position: relative;top: 60px;}
+    .thumb{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(2,6,23,.08);position: relative;top: 40px;}
     .thumb img{width:100%;height:auto;object-fit:cover}
 
     /* Partners */
@@ -140,13 +140,19 @@
      .flagship-grid,.contact-grid{grid-template-columns:1fr}
     }
 
-    @media screen and (max-width:1200px){
-       .hero-grid, .app-grid{
+    @media screen and (max-width:1000px){
+       .app-grid{
         grid-template-columns:1fr
       }
     }
 
-    @media screen and (min-width:600px) and (max-width:1200px){
+    @media screen and (max-width:1200px){
+       .hero-grid{
+        grid-template-columns:1fr
+      }
+    }
+
+    @media screen and (min-width:600px) and (max-width:1000px){
        .thumb{
         position: static;
         width: 80%;
@@ -164,6 +170,10 @@
       grid-template-columns:1fr 1fr 1fr;
     }
 
+    .dynamic-grid2{
+      grid-template-columns:1fr 1fr;
+    }
+
     @media screen and (max-width: 588px) {
       .dynamic-grid{
         grid-template-columns:1fr;
@@ -171,6 +181,12 @@
 
       .hero{
         padding: 24px 18px 48px;
+      }
+    }
+
+    @media screen and (max-width: 490px) {
+      .dynamic-grid2{
+        grid-template-columns:1fr;
       }
     }
 
@@ -291,7 +307,7 @@
           <div>
             <h2>Terratoka App — Digital Literacy & Rural Experiences</h2>
             <p class="subtitle">An all‑in‑one platform that introduces rural communities — especially kids — to computer literacy and cybersecurity basics, while connecting families to host unique rural experiences.</p>
-            <div class="cards dynamic-grid">
+            <div class="cards dynamic-grid2">
               <article class="card">
                 <h3>Digital Basics</h3>
                 <p>Offline‑first lessons on safe browsing, passwords, privacy, and device care — built for low‑connectivity schools.</p>
@@ -299,10 +315,6 @@
               <article class="card">
                 <h3>Cyber Awareness</h3>
                 <p>Playful challenges led by mentors and diaspora volunteers to learn how to protect themselves online.</p>
-              </article>
-              <article class="card">
-                <h3>Host Experiences</h3>
-                <p>“Airbnb‑style” listings for rural families: cooking classes, gardening, craft days — with fair, transparent payouts.</p>
               </article>
             </div>
             <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
